@@ -28,3 +28,5 @@ jobs:
           commit_message="Deploy to live-site branch - $(date +'%Y-%m-%d %H:%M:%S')"
           git commit -m "$commit_message"
           git push origin live-site
+        env:
+          GH_TOKEN: ${{ secrets.CRK_DEPLOY_KEY }}
