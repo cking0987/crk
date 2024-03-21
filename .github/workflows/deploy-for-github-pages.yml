@@ -27,6 +27,6 @@ jobs:
           git add -f dist/
           commit_message="Deploy to live-site branch - $(date +'%Y-%m-%d %H:%M:%S')"
           git commit -m "$commit_message"
-          git push origin live-site
+          git push --force origin live-site
         env:
           GITHUB_TOKEN: ${{ github.token }}
