@@ -1,0 +1,30 @@
+name: Deploy live site
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Commit built files to live-site branch
+        run: |
+          git config --local user.email "cking0987@gmail.com"
+          git config --local user.name "Chuck King"
+          git checkout -b live-site
+          git add -f dist/
+          commit_message="Deploy to live-site branch - $(date +'%Y-%m-%d %H:%M:%S')"
+          git commit -m "$commit_message"
+          git push origin live-site
