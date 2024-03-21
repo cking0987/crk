@@ -27,7 +27,6 @@ jobs:
           git add -f dist/
           commit_message="Deploy to live-site branch - $(date +'%Y-%m-%d %H:%M:%S')"
           git commit -m "$commit_message"
-          # Use the provided personal access token (PAT) for authentication
-          git push https://github.com/${{ github.repository }}.git live-site --force --quiet
+          git push origin live-site
         env:
-          GH_TOKEN: ${{ secrets.CRK_DEPLOY_KEY }}
+          GITHUB_TOKEN: ${{ github.token }}
