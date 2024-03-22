@@ -1,4 +1,4 @@
-name: Deploy to live-site
+name: Make it so
 
 on:
   push:
@@ -25,7 +25,7 @@ jobs:
           git config --local user.name "Chuck King"
           git checkout -b live-site
           git add -f docs/
-          commit_message="Deploy to live-site branch - $(date +'%Y-%m-%d %H:%M:%S')"
+          commit_message="Deploy $(date +'%Y-%m-%d %H:%M:%S')"
           git commit -m "$commit_message"
           git push --force origin live-site
         env:
