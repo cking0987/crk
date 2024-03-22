@@ -1,62 +1,68 @@
 import { LitElement, css, html } from 'lit'
-import litLogo from './assets/lit.svg'
-import viteLogo from '/vite.svg'
+import crkLogo from './assets/crk-logo.svg'
 
 /**
  * An example element.
  *
  * @slot - This element has a slot
- * @csspart button - The button
+ * 
  */
 export class MyElement extends LitElement {
   static get properties() {
     return {
-      /**
-       * Copy for the read the docs hint.
-       */
-      docsHint: { type: String },
-
-      /**
-       * The number of times the button has been clicked.
-       */
-      count: { type: Number },
-    }
+      activeTab: { type: String }, // Track the active tab
+    };
   }
 
   constructor() {
-    super()
-    this.docsHint = 'Click on the Vite and Lit logos to learn more'
-    this.count = 0
+    super();
+    this.activeTab = ''; // Initialize active tab as empty
   }
+
+  // Content for each tab
+  tabContent = {
+    learn: html`
+      <h2>Chuck King (nerd).</h2>
+      <p>Creative strategist and digital innovator</p>
+      <p>What does that even mean? 🧐 I'm a tech nerd who is actually just an all-around nerd. I have very few qualifications but I make up for that with my insatiable curiosity and lust for failure.</p>
+      <p>I like to design things and then build them. I do websites, apps, print design, and real-life things that don't have any pixels at all. That's what the projects section of my site is all about. This is the about page though, so I'll move on to the mission-critical information now.</p>`,
+    look: html`<p>This is the Look tab content</p>`,
+    talk: html`<p>This is the Talk tab content</p>`,
+  };
+
 
   render() {
     return html`
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src=${viteLogo} class="logo" alt="Vite logo" />
-        </a>
-        <a href="https://lit.dev" target="_blank">
-          <img src=${litLogo} class="logo lit" alt="Lit logo" />
-        </a>
+        <img src="${crkLogo}" class="logo" alt="crk logo" />
       </div>
-      <slot></slot>
-      <div class="card">
-        <button @click=${this._onClick} part="button">
-          count is ${this.count}
-        </button>
+      <p>why are you here?</p>
+      <p class="tab">
+        <a href="#" @click="${() => this.activateTab('learn')}">learn</a>
+        <a href="#" @click="${() => this.activateTab('look')}">look</a>
+        <a href="#" @click="${() => this.activateTab('talk')}">talk</a>
+        
+      </p>
+      <div class="content">
+      <p>${this.activeTab ? html`<button @click="${() => this.closeTab()}">X</button>` : ''}</p>
+        ${this.activeTab ? this.tabContent[this.activeTab] : ''}
       </div>
-      <p class="read-the-docs">${this.docsHint}</p>
-    `
+    `;
   }
 
-  _onClick() {
-    this.count++
+  activateTab(tab) {
+    this.activeTab = tab;
   }
+
+  closeTab() {
+    this.activeTab = '';
+  }
+
 
   static get styles() {
     return css`
       :host {
-        max-width: 1280px;
+        max-width: 400px;
         margin: 0 auto;
         padding: 2rem;
         text-align: center;
@@ -74,55 +80,19 @@ export class MyElement extends LitElement {
       .logo.lit:hover {
         filter: drop-shadow(0 0 2em #325cffaa);
       }
-
-      .card {
-        padding: 2em;
+      .tab {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
       }
-
-      .read-the-docs {
-        color: #888;
-      }
-
-      a {
-        font-weight: 500;
-        color: #646cff;
-        text-decoration: inherit;
-      }
-      a:hover {
-        color: #535bf2;
+      .content {
+        margin-top: 1rem;
+        text-align: left;
       }
 
       ::slotted(h1) {
         font-size: 3.2em;
         line-height: 1.1;
-      }
-
-      button {
-        border-radius: 8px;
-        border: 1px solid transparent;
-        padding: 0.6em 1.2em;
-        font-size: 1em;
-        font-weight: 500;
-        font-family: inherit;
-        background-color: #1a1a1a;
-        cursor: pointer;
-        transition: border-color 0.25s;
-      }
-      button:hover {
-        border-color: #646cff;
-      }
-      button:focus,
-      button:focus-visible {
-        outline: 4px auto -webkit-focus-ring-color;
-      }
-
-      @media (prefers-color-scheme: light) {
-        a:hover {
-          color: #747bff;
-        }
-        button {
-          background-color: #f9f9f9;
-        }
       }
     `
   }
