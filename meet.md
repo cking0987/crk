@@ -1,9 +1,9 @@
 ---
-layout: default
-author_profile: true
+layout: single
+title: meet
 ---
 
-# Who, me?
+## who, me?
 
 As you may have guessed from the URL, my name is Charles Richard King. I go by Chuck, Charlie, Charles, and Little Chicky. Pick your favorite. I use he/him pronouns.
 

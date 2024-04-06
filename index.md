@@ -1,6 +1,4 @@
 ---
-layout: default
-author_profile: true
+layout: single
+title: why are you here?
 ---
-
-# why are you here?

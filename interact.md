@@ -1,8 +1,8 @@
 ---
-layout: default
-author_profile: true
+layout: single
+title: interact
 ---
 
-# Email?
+## email?
 
 If you're into that sort of thing, you can contact me at <charlesrichardking@gmail.com>.
