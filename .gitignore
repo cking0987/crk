@@ -1,13 +1,5 @@
-# Compiled static site
-docs
-
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+_site
+.sass-cache
+.jekyll-cache
+.jekyll-metadata
+vendor
