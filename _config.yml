@@ -3,7 +3,7 @@ email: charlesrichardking@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A dumb little website to show my dumb little projects.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. http://example.com
+url: localwww.charlesrichardking.com # this is the local URL. This gets overwritten in a production build
 github_username:  cking0987
 repository: cking0987/crk
 
