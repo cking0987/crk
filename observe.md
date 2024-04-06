@@ -1,8 +1,6 @@
 ---
-layout: default
-author_profile: true
+layout: single
+title: observe
 ---
-
-# observe
 
 coming soon...
