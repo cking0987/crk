@@ -1,8 +1,8 @@
 # main nav links
 main:
   - title: "meet"
-    url: /meet/
+    url: /meet
   - title: "observe"
-    url: /observe/
+    url: /observe
   - title: "interact"
-    url: /interact/
+    url: /interact
